@@ -17,8 +17,9 @@ const CollaborativeRoom = ({ roomId, roomMetadata, users, currentUserType }: Col
   const [editing, setEditing] = useState(false);
   const [loading, setLoading] = useState(false);
 
+  // Correct ref typing for HTMLInputElement
   const containerRef = useRef<HTMLDivElement>(null);
-  const inputRef = useRef<HTMLInputElement>(null); // Adjusted ref type
+  const inputRef = useRef<HTMLInputElement>(null); // Correct ref typing here
 
   const updateTitleHandler = async (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
@@ -71,7 +72,7 @@ const CollaborativeRoom = ({ roomId, roomMetadata, users, currentUserType }: Col
                 <Input
                   type="text"
                   value={documentTitle}
-                  ref={inputRef} // Ref is correctly passed here
+                  ref={inputRef} // Correctly use inputRef here
                   placeholder="Enter title"
                   onChange={(e) => setDocumentTitle(e.target.value)}
                   onKeyDown={updateTitleHandler}
